@@ -13,6 +13,27 @@
   --button-color: #f5f4fa;
   --background-light: #e5e5e5;
 }
+
+/* deklaracja Border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Globalne resetowanie stylów */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 /* SPYTAĆ SIĘ KONIECZNIE MENTORA JAK USUNĄĆ DOMYŚLNE FORMATOWANIE LINKÓW W PRZEGLĄDARCE */
 body {
   font-family: 'Roboto', 'Raleway', sans-serif;
@@ -71,7 +92,7 @@ body {
 .top-bar {
   text-align: center;
   background-color: var(--font-white);
-  border: 1px solid var(--stroke-color);
+  border-bottom: 1px solid var(--stroke-color);
   padding-bottom: 35px;
   padding-top: 32px;
 }
@@ -86,17 +107,15 @@ body {
   padding-top: 94px;
 }
 
-.section-what-we-do {
-  padding-top: 80px;
-  padding-bottom: 94px;
+.section {
+  padding: 94px 0px;
 }
 
-.section-team {
+.team {
   background-color: var(--button-color);
-  padding-top: 30px;
 }
 
-.section-call-to-action {
+.call-to-action {
   padding-top: 1px;
   height: 600px;
   text-align: center;
@@ -114,19 +133,16 @@ body {
 
 .list-item {
   display: inline-block;
-  list-style: none;
   margin: 15px;
 }
 
 .list-team {
   display: inline-block;
-  list-style: none;
   margin: -25px;
 }
 
 .list-item-button {
   display: inline-block;
-  list-style: none;
 }
 
 /* Klasy dla menu */
