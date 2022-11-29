@@ -12,6 +12,9 @@
   --border-color: #eeeeee;
   --button-color: #f5f4fa;
   --background-light: #e5e5e5;
+  --shadow-box-1: rgba(0, 0, 0, 0.12);
+  --shadow-box-2: rgba(0, 0, 0, 0.14);
+  --shadow-box-3: rgba(0, 0, 0, 0.2);
 }
 
 /* deklaracja Border-box */
@@ -22,6 +25,7 @@
 }
 
 /* Globalne resetowanie stylów */
+body,
 h1,
 h2,
 h3,
@@ -29,12 +33,14 @@ h4,
 h5,
 h6,
 p,
+nav,
+figure,
 ul {
-  margin: 0;
-  padding: 0;
-  border: 0;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
 }
-/* SPYTAĆ SIĘ KONIECZNIE MENTORA JAK USUNĄĆ DOMYŚLNE FORMATOWANIE LINKÓW W PRZEGLĄDARCE */
+
 body {
   font-family: 'Roboto', 'Raleway', sans-serif;
   color: var(--font-gray);
@@ -42,17 +48,21 @@ body {
   background-color: var(--background-light);
 }
 
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
 /*NAgłówki sekcji */
 
 .main-header {
+  margin: 106px 252px 30px;
   color: var(--font-white);
-  padding-top: 200px;
   font-size: 44px;
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-align: center;
-  margin-left: 28%;
-  width: 44%;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
@@ -62,23 +72,19 @@ body {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 0.03em;
-  padding-bottom: 10px;
+  margin-bottom: 50px;
 }
 /* Klasy dla logo - ogólna + szczególna */
 .logo {
-  margin-left: 215px;
+  display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--blue);
   text-decoration: none;
-  margin-top: -5px;
 }
 
-.logo-top {
-  float: left;
-}
 .logo-header {
   color: var(--logo-black);
 }
@@ -90,21 +96,19 @@ body {
 /* Klasy dla ułożenia elementów menu górnego */
 
 .top-bar {
-  text-align: center;
+  padding: 24px 0px 25px 0px;
   background-color: var(--font-white);
   border-bottom: 1px solid var(--stroke-color);
-  padding-bottom: 35px;
-  padding-top: 32px;
 }
 
-/* klasa dla wszystkich sekcji */
-.center-text {
-  text-align: center;
+.top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
-
 .section-article {
-  background-color: var(--background-light);
-  padding-top: 94px;
+  text-align: center;
+  background-color: var(--font-white);
 }
 
 .section {
@@ -116,49 +120,44 @@ body {
 }
 
 .call-to-action {
-  padding-top: 1px;
-  height: 600px;
   text-align: center;
   background-color: var(--background-dark);
 }
 
 .section-project {
-  padding-top: 34px;
   text-align: center;
   background-color: var(--font-white);
-  padding-bottom: 74px;
 }
 
 /* Klasa dla list */
 
 .list-item {
   display: inline-block;
-  margin: 15px;
 }
 
 .list-team {
   display: inline-block;
-  margin: -25px;
-}
-
-.list-item-button {
-  display: inline-block;
+  width: 270px;
 }
 
 /* Klasy dla menu */
-
-.menu {
-  margin-left: 50px;
-  margin-top: -15px;
-  float: left;
-}
 
 .menu-link {
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
   color: var(--font-black);
-  margin: 24px;
+  margin-right: 46px;
+}
+
+.menu {
+  display: inline-block;
+}
+.menu:first-child {
+  margin-left: 93px;
+}
+.menu:last-child {
+  margin-right: 325px;
 }
 
 .menu-link:hover,
@@ -174,12 +173,28 @@ body {
   margin: 24px;
 }
 
+.menu-footer:first-child {
+  margin-top: 20px;
+}
+
 /* Klasy dla article*/
 
+.box-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.team-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.article-list {
+  margin-bottom: 94px;
+}
 .article-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 270px;
   font-size: 14px;
   letter-spacing: 0.03em;
 }
@@ -189,6 +204,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .article-text {
@@ -201,40 +217,51 @@ body {
 
 .team-container {
   background-color: var(--font-white);
+  width: 270px;
   font-size: 16px;
   letter-spacing: 0.03em;
-  box-shadow: 0px 2px 2px var(--shadow);
-  border-radius: 4px;
-  margin-bottom: 94px;
+  box-shadow: 0px 1px 3px var(--shadow-box-1), 0px 1px 1px var(--shadow-box-2),
+    0px 2px 1px var(--shadow-box-3);
+  border-radius: 0px 0px 4px 4px;
 }
 
+.team-container figcaption {
+  padding: 30px 0px;
+  text-align: center;
+}
 .team-member {
   color: var(--font-black);
   font-weight: 500;
 }
 
 .team-position {
+  margin-top: 10px;
   color: var(--font-gray);
-  padding-bottom: 30px;
-}
-
-.team-photo {
-  padding-bottom: 20px;
 }
 
 /* Klasa project dla divów w których są przykłady portfolio */
 
-.project-container {
-  border: 1px solid var(--stroke-color);
+.project-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.project-picture {
+  vertical-align:middle;
+}
+.project-box {
+  padding: 20px 24px;
+  border: 1px solid var(--border-color);
+  border-top: none;
 }
 
 .project-title {
   font-size: 18px;
   font-weight: 700;
   line-height: 2;
-  margin-bottom: -12px;
   letter-spacing: 0.06em;
-  padding-left: 24px;
+  text-align: left;
   color: var(--font-black);
 }
 
@@ -242,8 +269,8 @@ body {
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.03em;
-  padding-left: 24px;
   color: var(--font-gray);
+  text-align: left;
 }
 
 /* Klasa buttons dla przycisków z filtrami */
@@ -264,8 +291,9 @@ body {
   padding-right: 22px;
   padding-top: 6px;
   padding-bottom: 6px;
-  margin: 4px;
+  margin: 0px 4px 50px;
 }
+
 .button-call-to-action {
   background-color: var(--blue);
   color: var(--font-white);
@@ -276,10 +304,8 @@ body {
   border: 0px;
   cursor: pointer;
   border-radius: 4px;
-  padding-left: 41px;
-  padding-right: 41px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 41px;
+  margin-bottom: 106px;
 }
 .project-list-button:hover,
 .project-list-button:focus {
@@ -295,9 +321,10 @@ body {
   font-weight: 500;
   color: var(--font-gray);
   text-decoration: none;
-  margin: 25px;
 }
-
+.last-address-header {
+  margin-left: 50px;
+}
 .contact-text-header:hover,
 .contact-text-header:focus {
   color: var(--blue);
@@ -316,7 +343,6 @@ body {
 .contact-text {
   font-style: normal;
   list-style: none;
-  padding-left: 175px;
 }
 
 .contact-text-mail-bottom {
@@ -326,9 +352,7 @@ body {
 /* Klasa dla footer */
 
 .bottom-bar {
-  padding-top: 60px;
-  height: 192px;
-  margin-top: -30px;
+  padding: 60px 0px;
   letter-spacing: 0.03em;
   color: var(--font-white);
   background-color: var(--background-dark);
