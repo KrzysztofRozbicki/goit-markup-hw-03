@@ -54,7 +54,7 @@ body {
 /*NAgłówki sekcji */
 
 .main-header {
-  margin: 106px 252px 30px;
+  margin-bottom: 30px;
   color: var(--font-white);
   font-size: 44px;
   line-height: 1.36;
@@ -135,7 +135,9 @@ body {
   text-align: center;
   background-color: var(--background-dark);
 }
-
+.call-to-action-box {
+  padding: 106px 252px;
+}
 .section-project {
   text-align: center;
   background-color: var(--font-white);
@@ -186,7 +188,7 @@ body {
   margin: 24px;
 }
 
-.menu-footer:first-child {
+.menu-footer {
   margin-top: 20px;
 }
 
@@ -195,6 +197,7 @@ body {
 .box-list {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 30px;
 }
 
@@ -318,7 +321,6 @@ body {
   cursor: pointer;
   border-radius: 4px;
   padding: 10px 41px;
-  margin-bottom: 106px;
 }
 .project-list-button:hover,
 .project-list-button:focus {
@@ -353,6 +355,10 @@ body {
 .contact-text {
   font-style: normal;
   list-style: none;
+}
+
+.contact-text:nth-child(2n) {
+  margin: 9px 0px;
 }
 
 .contact-text-mail-bottom {
