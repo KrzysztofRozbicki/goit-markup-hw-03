@@ -168,12 +168,6 @@ body {
   justify-content: space-between;
   gap: 46px;
 }
-/* .menu:first-child {
-  margin-left: 93px;
-}
-.menu:last-child {
-  margin-right: 325px;
-} */
 
 .menu-link:hover,
 .menu-link:focus {
