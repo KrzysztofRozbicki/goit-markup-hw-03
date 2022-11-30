@@ -146,6 +146,10 @@ body {
 /* Klasa dla list */
 
 .list-item {
+  list-style: none;
+}
+
+.list-item-button {
   display: inline-block;
 }
 
